@@ -1,0 +1,17 @@
+{
+  "name": "new-graduate-recruitment-static",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass:build": "sass --no-source-map sass/style.scss css/style.min.css --style=compressed | postcss --use autoprefixer -b 'last 10 versions' css/style.min.css -o css/style.min.css",
+    "sass:watch": "sass --no-source-map --watch sass/style.scss css/style.min.css --style=compressed | postcss --use autoprefixer -b 'last 10 versions' css/style.min.css -o css/style.min.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.0"
+  }
+}

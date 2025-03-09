@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a{
+    transition: 0.3s all;
+    color: red;
+    
+    p{
+      color: #fff;
+    }
+  }
+
+  .hoge {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    color: #fafafa90;
+    border-radius: 10px;
+  }
