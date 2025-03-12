@@ -17,17 +17,6 @@ $breakpoints: (
     }
 }
 
-section + section {
-  margin-top: 20px;
-}
-.fadeIn {
-  transition: 1s;
-  opacity: 0;
-  &.animated {
-    opacity: 1;
-  }
-}
-
 .fv {
   width: 100vw;
   &-back-img {
@@ -183,15 +172,36 @@ section + section {
     }
   }
 }
+main {
+  background: linear-gradient(300deg,deepskyblue,#4bbaba,#ecedd5,#8a8a8a);
+  background-size: 240% 240%;
+  animation: gradient-animation 24s ease infinite;
 
-.about-us {
-  padding: 10px;
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  section + section {
+    margin-top: 20px;
+  }
+  .fadeIn {
+    transition: 2s;
+    opacity: 0;
+    &.animated {
+      opacity: 1;
+    }
+  }
   .confetti {
     position: absolute;
     width: 100vw;
-    height: 100%;
-    max-height: 200px;
-  
+    height: 100vh;
     > span {
       display: block;
       position: absolute;
@@ -209,104 +219,122 @@ section + section {
         }
       }
     }
-  }
-  
-  @keyframes rotateY {
-    0% {
-      transform: rotateY(0deg);
-    }
-  
-    100% {
-      transform: rotateY(360deg);
-    }
-  }
-  
-  @keyframes rotate360 {
-    0% {
-      transform: rotate(0deg);
-    }
-  
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  &-contents {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    height: 100px;
-    &-job, &-history {
-      background-image: url(https://placehold.jp/20/3d4070/ffffff/500x300.png?text=%E4%BA%8B%E6%A5%AD%E7%B4%B9%E4%BB%8B%E7%94%BB%E5%83%8F);
-      background-repeat: no-repeat;
-      background-size: cover;
-      width: calc(50% - 10px);
-      & > a {
-        display: block;
-        width: 100%;
-        height: 80px;
-        line-height: 80px;
-        text-align: center;
-        font-size: 30px;
-        color: #fff;
-        cursor: pointer;
-        z-index: 1;
-        position: relative;
+    @keyframes rotateY {
+      0% {
+        transform: rotateY(0deg);
+      }
+    
+      100% {
+        transform: rotateY(360deg);
       }
     }
-    &-history {
-      background-image: url(https://placehold.jp/20/3e703e/ffffff/500x300.png?text=%E4%BC%9A%E7%A4%BE%E3%81%AE%E6%AD%B4%E5%8F%B2%E7%94%BB%E5%83%8F);
+    
+    @keyframes rotate360 {
+      0% {
+        transform: rotate(0deg);
+      }
+    
+      100% {
+        transform: rotate(360deg);
+      }
     }
   }
-  
-}
-.office {
-  padding: 10px;
-  &-contents {
-    display: grid;
-    justify-items: center;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+  .about-us {
     padding: 10px;
-    margin-top: 20px;
-    &-inner {
-      width: 100%;
+    &-contents {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
       height: 100px;
-      &-text {
-        display: flex;
-        align-items: center;
-        height: 100px;
+      &-job, &-history {
+        background-image: url(https://placehold.jp/20/3d4070/ffffff/500x300.png?text=%E4%BA%8B%E6%A5%AD%E7%B4%B9%E4%BB%8B%E7%94%BB%E5%83%8F);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: calc(50% - 10px);
+        & > a {
+          display: block;
+          width: 100%;
+          height: 80px;
+          line-height: 80px;
+          text-align: center;
+          font-size: 30px;
+          color: #fff;
+          cursor: pointer;
+          z-index: 1;
+          position: relative;
+        }
+      }
+      &-history {
+        background-image: url(https://placehold.jp/20/3e703e/ffffff/500x300.png?text=%E4%BC%9A%E7%A4%BE%E3%81%AE%E6%AD%B4%E5%8F%B2%E7%94%BB%E5%83%8F);
+      }
+    }
+    
+  }
+  .office {
+    padding: 10px;
+    &-contents {
+      display: grid;
+      justify-items: center;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 10px;
+      margin-top: 20px;
+      @include media(sp) {
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+      }
+      &-inner {
+        width: calc(100% - 20px);
+        height: 80px;
+        > a {
+          width: 100%;
+          height: 80px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+          font-size: 30px;
+        }
+        &-text {
+          display: flex;
+          align-items: center;
+          height: 100px;
+        }
       }
     }
   }
-}
-
-.section-title {
-  font-family: "Outfit", sans-serif;
-  font-size: 86px;
-  letter-spacing: 1px;
-  position: relative;
-  width: fit-content;
-  line-height: 1.3;
-  & > span {
-    background: #000;
-    color: #fff;
+  .recruite {
+    padding: 10px;
   }
-  &::after {
-    position: absolute;
-    left: 0;
-    content: '';
-    width: 100%;
-    height: 4px;
-    background: #000000;
-    bottom: -1px;               /*アンダーラインがaタグの下端から現れる*/
-    transform: scale(0, 1);     /*アンダーラインの縮尺比率。ホバー前はx方向に0*/
-    transform-origin: left top; /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の左端*/
-    transition: transform 1.5s; /*変形の時間*/
-  }
-  &.is-visible {
+  
+  .section-title {
+    font-family: "Outfit", sans-serif;
+    font-size: 86px;
+    letter-spacing: 1px;
+    position: relative;
+    width: fit-content;
+    line-height: 1.3;
+    & > span {
+      background: #000;
+      color: #fff;
+    }
     &::after {
-      transform: scale(1, 1);
+      position: absolute;
+      left: 0;
+      content: '';
+      width: 100%;
+      height: 4px;
+      background: #000000;
+      bottom: -1px;               /*アンダーラインがaタグの下端から現れる*/
+      transform: scale(0, 1);     /*アンダーラインの縮尺比率。ホバー前はx方向に0*/
+      transform-origin: left top; /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の左端*/
+      transition: transform 1.5s; /*変形の時間*/
+    }
+    &.is-visible {
+      &::after {
+        transform: scale(1, 1);
+      }
     }
   }
 }
